@@ -47,14 +47,38 @@ class UserDAO implements UserDAOInterface
 
         $stmt->execute();
 
-        // autenticar usuário caso auth seja 
+        // autenticar usuário caso auth seja true
         if ($authUser) {
             $this->setTokenToSession($user->token);
         }
     }
 
-    public function update(User $user)
+    public function update(User $user, $redirect = true)
     {
+        $stmt = $this->conn->prepare("UPDATE users SET 
+            name = :name,
+            lastname = :lastname,
+            email = :email,
+            image = :image,
+            bio = :bio,
+            token = :token,
+            WHERE id = :id
+        ");
+
+        $stmt->bindParam(":name", $user->name);
+        $stmt->bindParam(":lastname", $user->lastname);
+        $stmt->bindParam(":email", $user->email);
+        $stmt->bindParam(":image", $user->image);
+        $stmt->bindParam(":bio", $user->bio);
+        $stmt->bindParam(":token", $user->token);
+        $stmt->bindParam(":id", $user->id);
+
+        $stmt->execute();
+
+        if ($redirect) {
+            // redireciona para o perfil do usuario
+            $this->message->setMessage("Dadaos atualizados com suceso!", "sucess", "/editprofile.php");
+        }
     }
 
     public function verifyToken($protected = false)
