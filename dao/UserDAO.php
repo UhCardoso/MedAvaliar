@@ -61,7 +61,7 @@ class UserDAO implements UserDAOInterface
             email = :email,
             image = :image,
             bio = :bio,
-            token = :token,
+            token = :token
             WHERE id = :id
         ");
 
@@ -77,7 +77,7 @@ class UserDAO implements UserDAOInterface
 
         if ($redirect) {
             // redireciona para o perfil do usuario
-            $this->message->setMessage("Dadaos atualizados com suceso!", "sucess", "/editprofile.php");
+            $this->message->setMessage("Dados atualizados com suceso!", "success", "/editprofile.php");
         }
     }
 
