@@ -118,6 +118,28 @@ class UserDAO implements UserDAOInterface
 
     public function authenticateUser($email, $password)
     {
+        $user = $this->findByEmail($email);
+
+        if ($user) {
+            // checar se as senhas batem
+            if (password_verify($password, $user->password)) {
+                // gerar um token e inserir na session
+                $token = $user->generateToken();
+
+                $this->setTokenToSession($token, false);
+
+                // atualizar token no usuário
+                $user->token = $token;
+
+                $this->update($user, false);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        return false;
     }
 
     public function findByEmail($email)
@@ -177,5 +199,17 @@ class UserDAO implements UserDAOInterface
 
     public function changePassword(User $user)
     {
+        $stmt = $this->conn->prepare("UPDATE users SET
+            password = :password
+            WHERE id = :id
+        ");
+
+        $stmt->bindParam(":password", $user->password);
+        $stmt->bindParam(":id", $user->id);
+
+        $stmt->execute();
+
+        // redirecionar e apresentar a mensagem de sucesso
+        $this->message->setMessage("Senha alterada com sucesso!", "success", "/editprofile.php");
     }
 }

@@ -54,14 +54,35 @@ if ($type === "update") {
 
             $userData->image = $imageName;
         } else {
-            $message->setMessage("Tipo inválido de imagem, insira png ou jpg!", "error", "back.php");
+            $message->setMessage("Tipo inválido de imagem, insira png ou jpg!", "error", "back");
         }
     }
 
     $userDao->update($userData);
 
     // atualizar senha do usuario
-} elseif ($type === "changepassword") {
+} elseif ($type === "changePassword") {
+    //recebe dados do post
+    $password = filter_input(INPUT_POST, "password");
+    $confirmPassword = filter_input(INPUT_POST, "confirmPassword");
+
+    //resgata dados do usuario
+    $userData = $userDao->verifyToken();
+    $id = $userData->id;
+
+    if ($password == $confirmPassword) {
+        // criar o novo objeto de usuario
+        $user = new User();
+
+        $finalPassword = $user->generatePassword($password);
+
+        $user->password = $finalPassword;
+        $user->id = $id;
+
+        $userDao->changePassword($user);
+    } else {
+        $message->setMessage("As senhas não são iguais!", "error", "back");
+    }
 } else {
-    $message->setMessage("Informações inválidas!", "error", "index.php");
+    $message->setMessage("Informações inválidas!", "error", "/index.php");
 }
