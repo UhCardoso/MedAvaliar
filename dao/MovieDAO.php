@@ -137,15 +137,42 @@ class MovieDAO implements MovieDAOInterface
 
         $stmt->execute();
 
-        // mensage mde successo ao adicionar filme
+        // mensagem de successo ao adicionar filme
         $this->message->setMessage("Filme adicionado com suceso!", "success", "/index.php");
     }
 
     public function update(Movie $movie)
     {
+        $stmt = $this->conn->prepare("UPDATE movies SET
+            title = :title,
+            description = :description,
+            image = :image,
+            category = :category,
+            trailer = :trailer,
+            length = :length
+            WHERE id = :id
+        ");
+
+        $stmt->bindParam(":title", $movie->title);
+        $stmt->bindParam(":description", $movie->description);
+        $stmt->bindParam(":image", $movie->image);
+        $stmt->bindParam(":category", $movie->category);
+        $stmt->bindParam(":trailer", $movie->trailer);
+        $stmt->bindParam(":length", $movie->length);
+        $stmt->bindParam(":id", $movie->id);
+
+        $stmt->execute();
+        // mensagem de successo ao atualizar filme
+        $this->message->setMessage("Filme atualizado com suceso!", "success", "/dashboard.php");
     }
 
     public function destroy($id)
     {
+        $stmt = $this->conn->prepare("DELETE FROM movies WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        // mensagem de successo ao deletar filme
+        $this->message->setMessage("Filme removido com suceso!", "success", "/index.php");
     }
 }
