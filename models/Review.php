@@ -17,5 +17,5 @@ interface ReviewDAOInterface
     public function create(Review $review);
     public function getMoviesReview($id);
     public function hasAlreadyReviewed($id, $userId);
-    public function getRating($id);
+    public function getRatings($id);
 }
