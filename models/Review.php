@@ -3,19 +3,23 @@
 class Review
 {
     public $id;
-    public $rating;
+    public $customer_services;
+    public $quality_services;
+    public $facilities_equipment;
+    public $waiting_time;
+    public $cost_benefit;
     public $review;
     public $users_id;
-    public $movies_id;
+    public $clinics_id;
 
-    public $user; // váriavel de suporte no reviewDao getMovies
+    public $user; // váriavel de suporte no reviewDao getClinics
 }
 
 interface ReviewDAOInterface
 {
     public function buildReview($data);
     public function create(Review $review);
-    public function getMoviesReview($id);
+    public function getclinicsReview($id);
     public function hasAlreadyReviewed($id, $userId);
     public function getRatings($id);
 }

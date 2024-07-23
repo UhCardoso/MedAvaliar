@@ -7,7 +7,7 @@
     width: 50px;
 }
 
-#moviestar-title {
+#clinicstar-title {
     color: #fff;
     position: absolute;
     bottom: -2px;
@@ -102,13 +102,13 @@
     font-size: 18px;
 }
 
-.movies-container {
+.clinics-container {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px;
 }
 
-.movie-card {
+.clinic-card {
     background-color: #1a1a1a;
     width: 18%;
     margin-bottom: 30px;
@@ -116,7 +116,7 @@
     margin-right: 1%;
 }
 
-.movie-card .card-img-top {
+.clinic-card .card-img-top {
     height: 300px;
     width: 100%;
     background-size: cover;
@@ -239,9 +239,9 @@
 }
 
 .edit-profile-page .card-btn,
-#add-movie-container .card-btn,
+#add-clinic-container .card-btn,
 #review-form .card-btn,
-#edit-movie-form .card-btn {
+#edit-clinic-form .card-btn {
     width: auto;
 }
 
@@ -263,7 +263,7 @@
     margin: 20px auto;
 }
 
-.added-movies-container,
+.added-clinics-container,
 .about-container {
     padding-top: 20px;
 }
@@ -274,28 +274,28 @@
     border-bottom: 3px solid #ccc;
 }
 
-.added-movies-container {
+.added-clinics-container {
     background-color: #333;
 }
 
-.added-movies-container .movies-container {
+.added-clinics-container .clinics-container {
     padding: 20px;
 }
 
-.added-movies-container .movie-card {
+.added-clinics-container .clinic-card {
     width: 31%;
 }
 
-/*new movie*/
-.new-movie-container {
+/*new clinic*/
+.new-clinic-container {
     text-align: center;
 }
 
-#add-movie-form {
+#add-clinic-form {
     text-align: left;
 }
 
-.movie-image-container {
+.clinic-image-container {
     height: 400px;
     min-height: 200px;
     background-position: center;
@@ -311,8 +311,12 @@
     padding-top: 7px;
 }
 
-/* Movie */
-.movie-container {
+/* clinic */
+.form-group {
+    margin-top: 10px;
+}
+
+.clinic-container {
     text-align: center;
 }
 
@@ -328,6 +332,37 @@
 #review-form-container {
     background-color: #333;
     padding: 20px;
+}
+
+.info-text {
+    margin-left: 10px;
+    border-radius: 5px;
+    display: none;
+    font-size: 0.7em;
+    color: #666;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.info-icon {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    padding: 0 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.location-text {
+    border-bottom: 1px solid #f5c518;
+    text-transform: capitalize;
+    width: max-content;
 }
 
 #review-form-container select,
@@ -346,12 +381,21 @@
     border: 1px solid #000;
 }
 
-.movie-details {
+.clinic-details {
     margin: 25px 0;
 }
 
 .author-details-container {
     padding-top: 20px;
+}
+
+.author-details-container h4 {
+    margin-bottom: 20px;
+}
+
+.author-details-container p {
+    font-size: 0.7rem;
+    margin-top: -15px;
 }
 
 .author-name a {
@@ -446,20 +490,20 @@
         margin-bottom: 1rem;
     }
 
-    .movies-container {
+    .clinics-container {
         padding: 0 15px;
     }
 
-    .movie-card {
+    .clinic-card {
         width: 100%;
     }
 
-    .movie-details {
+    .clinic-details {
         display: flex;
         flex-direction: column;
     }
 
-    .movie-details span {
+    .clinic-details span {
         padding-bottom: 8px;
     }
 
@@ -467,7 +511,7 @@
         display: none;
     }
 
-    .movie-container iframe {
+    .clinic-container iframe {
         max-width: 100% !important;
     }
 
@@ -489,13 +533,13 @@
         width: 100%;
     }
 
-    /* movie */
+    /* clinic */
     .review {
         padding: 0 15px;
     }
 
     /* dasboard */
-    #movies-dashboard {
+    #clinics-dashboard {
         padding: 0;
     }
 
@@ -508,8 +552,8 @@
         margin-bottom: 10px;
     }
 
-    /* edit movie */
-    .movie-image-container {
+    /* edit clinic */
+    .clinic-image-container {
         margin-top: 1rem;
     }
 

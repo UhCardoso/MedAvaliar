@@ -4,11 +4,11 @@ include_once("templates/header.php");
 // verifica se o usuário está autenticado
 require_once("models/User.php");
 require_once("dao/UserDAO.php");
-require_once("dao/MovieDAO.php");
+require_once("dao/ClinicDAO.php");
 
 $user = new User();
 $userDao = new UserDAO($conn, $BASE_URL);
-$movieDao = new MovieDAO($conn, $BASE_URL);
+$clinicDao = new ClinicDAO($conn, $BASE_URL);
 
 // receber id do usuário
 $id = filter_input(INPUT_GET, "id");
@@ -36,7 +36,7 @@ if ($userData->image == "") {
 
 // files que o usuário adicionou
 
-$userMovies = $movieDao->getMoviesByUserId($id);
+$userclinics = $clinicDao->getClinicsByUserId($id);
 ?>
 <div id="main-container" class="container-fluid">
     <div class="col-md-8 offset-md-2">
@@ -51,13 +51,13 @@ $userMovies = $movieDao->getMoviesByUserId($id);
                     <p class="profile-description">Usuário não possui bio...</p>
                 <?php endif; ?>
             </div>
-            <div class="col-md-12 added-movies-container">
+            <div class="col-md-12 added-clinics-container">
                 <h3>Filmes que enviou:</h3>
-                <div class="movies-container">
-                    <?php foreach ($userMovies as $movie) : ?>
-                        <?php require("templates/movie_card.php"); ?>
+                <div class="clinics-container">
+                    <?php foreach ($userclinics as $clinic) : ?>
+                        <?php require("templates/clinic_card.php"); ?>
                     <?php endforeach; ?>
-                    <?php if (count($userMovies) === 0) : ?>
+                    <?php if (count($userclinics) === 0) : ?>
                         <p class="empty-list">O usuário ainda não enviou nenhum filme.</p>
                     <?php endif; ?>
                 </div>

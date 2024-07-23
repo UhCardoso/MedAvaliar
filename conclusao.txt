@@ -1,0 +1,13 @@
+Design Patterns DAO
+
+CRUD ao MySQL utilizando stmt
+
+Orientação a objetos
+
+Criação de regras de negócios
+    - autenticação 
+    - verificação se usuário está logado para ter permissão de acesso a determinadas paginas
+    - média de notas de cada filme
+    - retornar filmes por categoria
+    - verificação de qual usuário pode ou não avaliar um filme
+    - sistema de busca por nome do filme

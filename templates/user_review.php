@@ -19,7 +19,11 @@ if ($review->user->image == "" || $review->user->image == null) {
             <h4 class="author-name">
                 <a href="<?= $BASE_URL ?>/profile.php?id=<?= $review->user->id ?>"><?= $fullName; ?></a>
             </h4>
-            <p><i class="fas fa-star"></i> <?= $review->rating; ?></p>
+            <p>Atendimento: <i class="fas fa-star"></i> <?= $review->customer_services; ?></p>
+            <p>Qualidade de serviço: <i class="fas fa-star"></i> <?= $review->quality_services; ?></p>
+            <p>Qualidade de equipamentos: <i class="fas fa-star"></i> <?= $review->facilities_equipment; ?></p>
+            <p>Tempo de espera: <i class="fas fa-star"></i> <?= $review->waiting_time; ?></p>
+            <p>Custo benefífcio: <i class="fas fa-star"></i> <?= $review->cost_benefit; ?></p>
         </div>
         <div class="col-md-12">
             <p class="comments-title">Comentário:</p>

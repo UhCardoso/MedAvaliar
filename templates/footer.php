@@ -14,9 +14,8 @@
     </div>
     <div id="footer-links-container">
         <ul>
-            <li><a href="#">Adicionar filme</a></li>
-            <li><a href="#">Adicionar crítica</a></li>
-            <li><a href="#">Entrar / Registrar</a></li>
+            <li><a href="<?= $BASE_URL ?>/newclinic.php">Adicionar clínica</a></li>
+            <li><a href="<?= $BASE_URL ?>/auth.php">Entrar / Registrar</a></li>
         </ul>
     </div>
     <p>&copy; 2024</p>

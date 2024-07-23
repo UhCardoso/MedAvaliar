@@ -22,10 +22,14 @@ class ReviewDao implements ReviewDAOInterface
         $reviewObject = new Review();
 
         $reviewObject->id = $data["id"];
-        $reviewObject->rating = $data["rating"];
+        $reviewObject->customer_services = $data["customer_services"];
+        $reviewObject->quality_services = $data["quality_services"];
+        $reviewObject->facilities_equipment = $data["facilities_equipment"];
+        $reviewObject->waiting_time = $data["waiting_time"];
+        $reviewObject->cost_benefit = $data["cost_benefit"];
         $reviewObject->review = $data["review"];
         $reviewObject->users_id = $data["users_id"];
-        $reviewObject->movies_id = $data["movies_id"];
+        $reviewObject->clinics_id = $data["clinics_id"];
 
         return $reviewObject;
     }
@@ -33,14 +37,18 @@ class ReviewDao implements ReviewDAOInterface
     public function create(Review $review)
     {
         $stmt = $this->conn->prepare("INSERT INTO reviews (
-            rating, review, movies_id, users_id
+            customer_services, quality_services, facilities_equipment, waiting_time, cost_benefit, review, clinics_id, users_id
         ) VALUES (
-            :rating, :review, :movies_id, :users_id
+            :customer_services, :quality_services, :facilities_equipment, :waiting_time, :cost_benefit, :review, :clinics_id, :users_id
         )");
 
-        $stmt->bindParam(":rating", $review->rating);
+        $stmt->bindParam(":customer_services", $review->customer_services);
+        $stmt->bindParam(":quality_services", $review->quality_services);
+        $stmt->bindParam(":facilities_equipment", $review->facilities_equipment);
+        $stmt->bindParam(":waiting_time", $review->waiting_time);
+        $stmt->bindParam(":cost_benefit", $review->cost_benefit);
         $stmt->bindParam(":review", $review->review);
-        $stmt->bindParam(":movies_id", $review->movies_id);
+        $stmt->bindParam(":clinics_id", $review->clinics_id);
         $stmt->bindParam(":users_id", $review->users_id);
 
         $stmt->execute();
@@ -49,13 +57,13 @@ class ReviewDao implements ReviewDAOInterface
         $this->message->setMessage("Avaliação adicionada com suceso!", "success", "/index.php");
     }
 
-    public function getMoviesReview($id)
+    public function getclinicsReview($id)
     {
         $reviews = [];
 
-        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE movies_id = :movies_id");
+        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE clinics_id = :clinics_id");
 
-        $stmt->bindParam(":movies_id", $id);
+        $stmt->bindParam(":clinics_id", $id);
 
         $stmt->execute();
 
@@ -79,9 +87,9 @@ class ReviewDao implements ReviewDAOInterface
 
     public function hasAlreadyReviewed($id, $userId)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE movies_id = :movies_id AND users_id = :users_id");
+        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE clinics_id = :clinics_id AND users_id = :users_id");
 
-        $stmt->bindParam(":movies_id", $id);
+        $stmt->bindParam(":clinics_id", $id);
         $stmt->bindParam(":users_id", $userId);
 
         $stmt->execute();
@@ -95,9 +103,9 @@ class ReviewDao implements ReviewDAOInterface
 
     public function getRatings($id)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE movies_id = :movies_id");
+        $stmt = $this->conn->prepare("SELECT * FROM reviews WHERE clinics_id = :clinics_id");
 
-        $stmt->bindParam(":movies_id", $id);
+        $stmt->bindParam(":clinics_id", $id);
 
         $stmt->execute();
 
@@ -107,10 +115,14 @@ class ReviewDao implements ReviewDAOInterface
             $reviews = $stmt->fetchAll();
 
             foreach ($reviews as $review) {
-                $rating += $review["rating"];
+                $rating += $review["customer_services"];
+                $rating += $review["quality_services"];
+                $rating += $review["facilities_equipment"];
+                $rating += $review["waiting_time"];
+                $rating += $review["cost_benefit"];
             }
 
-            $rating = $rating / count($reviews);
+            $rating = ($rating / 5) / count($reviews);
         } else {
             $rating = "Não avaliado";
         }
