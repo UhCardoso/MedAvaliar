@@ -2,7 +2,7 @@
 É um site para avaliação de clínicas médicas divididas em diferentes especialidades.
 O usuário poderar logar e cadastrar uma nova clínica para que ela seja avaliada por outros membros.
 
-Neste projeto consolidei os conhecimentos em Design Patterns DAO, CRUD ao MySQL utilizando stmt com relacionamento entre tabelas e Orientação a Objetos na linguagem PHP.
+Neste projeto consolidei os conhecimentos em Design Patterns DAO, CRUD ao banco de dados SQL com relacionamento entre tabelas e Orientação a Objetos na linguagem PHP.
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F01site.jpg?alt=media&token=192193b6-d22c-41ff-932d-5358d28da3dc" heigth="500" width="500">
@@ -16,9 +16,9 @@ Neste projeto consolidei os conhecimentos em Design Patterns DAO, CRUD ao MySQL 
 
 ## Sobre o projeto
 
-Neste projeto é possível realizar se registrar como usuário para o enviao do cadastro de uma nova clínica no sistema.
+Neste projeto é possível registrar como usuário e realizar o cadastro de uma nova clínica no sistema.
 
-Após o envio da clínica, ela ficará disponível para que os outros usuários a avaliem dando sua nota e adicinando comentários.
+Após o envio da clínica, ela ficará disponível para os outros usuários avaliarem dando sua nota e adicionando comentários.
 
 ### 1 - Sistema de autenticação
 Usuário deve se cadastrar no sistema com seu email e senha para utilizar funcionalidades
@@ -31,14 +31,14 @@ Usuário pode editar suas informações como foto e biografia na tela de ediçã
 </div>
 
 ### 2 - Tela inicial com todas as categorias de clínicas
-Nesta tela é listada todas as categorias por diferetes categorias. Cada clínica tem uma nota que é gerada através de um calculo com a média de avaliação por categoria de todos os usuários.
+Nesta tela são listadas todas as categorias por diferetes categorias. Cada clínica tem uma nota que é gerada através de um calculo com a média de avaliação por categoria de todos os usuários.
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F03categorias.jpg?alt=media&token=d1f1fcd2-76cf-403a-8ea7-4a877916bf56" heigth="500" width="500">
 </div>
 
 ### 3 - Tela de cadastro de clínica
-Nesta tela o usuário deverá informar o nome da cínica, imagem, categoria, Estado onde é localizada, cidade, bairro, link de incorporação de localização fornecido pelo Google Maps e descrição.
+Nesta tela o usuário deverá informar o nome da clínica, imagem, categoria, Estado onde é localizada, cidade, bairro, link de incorporação de localização fornecido pelo Google Maps e descrição.
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F04-cadstro-clinica.jpg?alt=media&token=6d9319fe-a8d5-4bbd-a6fd-53a359a56a67" heigth="500" width="500">
@@ -55,7 +55,7 @@ Nesta tela são apresentadas as informações da clinica, como: localização no
 ### 5 - Seção de avaliação
 Na parte debaixo da tela é possível que o usuário deixe sua avaliação sobre a clínica, caso ele ainda não tenha avaliado.
 
-O usuário poderá deixar seu comentário alem da sua nota de 1 a 10 nas seguinte categorias de avaliação: atendimento, qualidade dos serviços, qualidade dos equipamentos, tempo de espera e custo benefício.
+O usuário poderá deixar seu comentário, além da sua nota de 1 a 10 nas seguinte categorias de avaliação: atendimento, qualidade dos serviços, qualidade dos equipamentos, tempo de espera e custo benefício.
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F07-avalia-anonim.jpg?alt=media&token=98e9f605-580f-4e67-a157-6eb13d08bae9" heigth="500" width="500">
@@ -63,25 +63,25 @@ O usuário poderá deixar seu comentário alem da sua nota de 1 a 10 nas seguint
 
 ### 6 - Possibilidade de avaliação anônima
 
-O usuário poderá fazer sua avaliaçãode forma anônima caso ele prefira.
+O usuário poderá fazer sua avaliação de forma anônima caso ele prefira.
 
 ### 7 - Seção de comentários
 
-Mostra os comentários sobre a clinica e as notas de cada categoria de avaliação
+Mostra os comentários sobre a clínica e as notas de cada categoria de avaliação
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F08-comentario.jpg?alt=media&token=67e0f915-f5a1-4615-80f0-e6f3485c6f00" heigth="500" width="500">
 </div>
 
 ### 8 - Tela de perfil de usuários
-Mostra detelhes do perfil do usuário mostrando sua foto, biografia e clínicas que ele já adicionou no site.
+Mostra detalhes do perfil do usuário como foto, biografia e clínicas que ele já adicionou no site.
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F09-tela%20perfil.jpg?alt=media&token=bb42c28d-370b-4d4c-b9cb-8c6f90130e73" heigth="500" width="500">
 </div>
 
 ### 9 - Sistema de busca
-O usuário poderá buscar clínica pelo nome dela ou por sua localização.
+O usuário poderá buscar clínica pelo nome ou pela localidade dela.
 
 <div style="text-align: center;">   
     <img src="https://firebasestorage.googleapis.com/v0/b/werlen-dev.appspot.com/o/projects%2Freadmes%2Fmedavaliar%2F10-busca.jpg?alt=media&token=95335388-6b86-4bb9-b730-d276cb10645c" heigth="500" width="500">
