@@ -40,7 +40,7 @@ if ($type === "update") {
         //checagem de tipo de imagem
         if (in_array($image["type"], $imageTypes)) {
             //checar se jpg
-            if (in_array($image, $jpgArray)) {
+            if (in_array($image["type"], $jpgArray)) {
                 $imageFile = imagecreatefromjpeg($image["tmp_name"]);
 
                 // imagem é png

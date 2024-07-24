@@ -28,6 +28,7 @@ if ($type === "create") {
     $cost_benefit = filter_input(INPUT_POST, "cost_benefit");
     $review = filter_input(INPUT_POST, "review");
     $clinics_id = filter_input(INPUT_POST, "clinics_id");
+    $is_anonymous = filter_input(INPUT_POST, "is_anonymous");
     $users_id = $userData->id;
 
     $reviewObject = new Review();
@@ -45,6 +46,7 @@ if ($type === "create") {
             $reviewObject->cost_benefit = $cost_benefit;
             $reviewObject->review = $review;
             $reviewObject->clinics_id = $clinics_id;
+            $is_anonymous == "sim" ? $reviewObject->is_anonymous = true : $reviewObject->is_anonymous = false;
             $reviewObject->users_id = $users_id;
 
             $reviewDao->create($reviewObject);

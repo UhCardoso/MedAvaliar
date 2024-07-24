@@ -9,6 +9,7 @@ class Review
     public $waiting_time;
     public $cost_benefit;
     public $review;
+    public $is_anonymous;
     public $users_id;
     public $clinics_id;
 

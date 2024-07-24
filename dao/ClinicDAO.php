@@ -33,7 +33,7 @@ class ClinicDAO implements ClinicDAOInterface
         $clinic->neighborhood = $data["neighborhood"];
         $clinic->users_id = $data["users_id"];
 
-        //rebe as ratings do filme
+        //recebe as ratings do filme
         $reviewDao = new ReviewDao($this->conn, $this->url);
         $rating = $reviewDao->getRatings($clinic->id);
 
@@ -190,8 +190,7 @@ class ClinicDAO implements ClinicDAOInterface
             state = :state,
             city = :city,
             neighborhood = :neighborhood,
-            location = :location,
-            length = :length
+            location = :location
             WHERE id = :id
         ");
 
@@ -199,10 +198,10 @@ class ClinicDAO implements ClinicDAOInterface
         $stmt->bindParam(":description", $clinic->description);
         $stmt->bindParam(":image", $clinic->image);
         $stmt->bindParam(":category", $clinic->category);
-        $stmt->bindParam(":location", $clinic->location);
         $stmt->bindParam(":state", $clinic->state);
         $stmt->bindParam(":city", $clinic->city);
         $stmt->bindParam(":neighborhood", $clinic->neighborhood);
+        $stmt->bindParam(":location", $clinic->location);
         $stmt->bindParam(":id", $clinic->id);
 
         $stmt->execute();

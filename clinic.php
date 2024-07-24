@@ -56,7 +56,7 @@ $clinicReviews = $reviewDao->getClinicsReview($id);
                 <span class="pipe"></span>
                 <span><i class="fas fa-star"></i> <?= $clinic->rating; ?></span>
             </p>
-            <iframe src="<?= $clinic->location ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="<?= $clinic->location ?>" width="560" height="315" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p class="location-text"><b>Endereço:</b> <?= $clinic->neighborhood ?>, <?= $clinic->city ?> - <?= $clinic->state ?>, </p>
             <p><?= $clinic->description ?></p>
         </div>
@@ -181,6 +181,13 @@ $clinicReviews = $reviewDao->getClinicsReview($id);
                         <div class="form-group">
                             <label for="review">Seu comentário:</label>
                             <textarea name="review" id="review" rows="3" class="form-control" placeholder="Deixe mais detalhes sobre a sua avaliação a clínica..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_anonymous">Tornar sua avaliação anônima?</label>
+                            <input id="nao" name="is_anonymous" type="radio" value="nao" checked />
+                            <label for="nao">Não</label>
+                            <input id="sim" name="is_anonymous" type="radio" value="sim" />
+                            <label for="sim">Sim</label>
                         </div>
                         <input type="submit" class="btn card-btn" value="Enviar avaliação" />
                     </form>

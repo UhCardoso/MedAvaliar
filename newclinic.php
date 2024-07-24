@@ -51,12 +51,12 @@ $userData = $userDao->verifyToken(true);
                 <input type="text" class="form-control" name="neighborhood" id="neighborhood" placeholder="Insira o bairro da clínica" />
             </div>
             <div class="form-group">
-                <label for="description">Descrição:</label>
-                <textarea name="description" id="description" rows="5" class="form-control" placeholder="Descreva detalhes sobre a clínica e o que ela oferece..."></textarea>
+                <label for="location">Localização:</label>
+                <input type="text" class="form-control" name="location" id="location" placeholder="Insira o link de incorporação de mapa da clínica" />
             </div>
             <div class="form-group">
-                <label for="trailer">Localização:</label>
-                <input type="text" class="form-control" name="location" id="location" placeholder="Insira o link de incorporação de mapa da clínica" />
+                <label for="description">Descrição:</label>
+                <textarea name="description" id="description" rows="5" class="form-control" placeholder="Descreva detalhes sobre a clínica e o que ela oferece..."></textarea>
             </div>
             <input type="submit" class="btn form card-btn" value="Cadastrar clínica">
         </form>

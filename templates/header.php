@@ -24,7 +24,7 @@ $userData = $userDao->verifyToken(false);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clinicstar</title>
+    <title>MedAvaliar</title>
     <link rel="short icon" href="<?= $BASE_URL ?>/img/clinicstar.ico" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.css" integrity="sha512-VcyUgkobcyhqQl74HS1TcTMnLEfdfX6BbjhH8ZBjFU9YTwHwtoRtWSGzhpDVEJqtMlvLM2z3JIixUOu63PNCYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -38,8 +38,8 @@ $userData = $userDao->verifyToken(false);
     <header>
         <nav id="main-navbar" class="navbar navbar-expand-lg">
             <a href="<?= $BASE_URL ?>/" class="navbar-brand">
-                <img src="<?= $BASE_URL ?>/img/logo.svg" alt="clinicstar" id="logo">
-                <span id="clinicstar-title">clinicstar</span>
+                <img src="<?= $BASE_URL ?>/img/logo.png" alt="clinicstar" id="logo">
+                <span id="clinicstar-title">MedAvaliar</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>

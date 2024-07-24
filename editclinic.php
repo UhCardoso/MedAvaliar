@@ -42,8 +42,8 @@ if ($clinic->image == "" || $clinic->image == null) {
                     <input type="hidden" name="type" value="update" />
                     <input type="hidden" name="id" value="<?= $clinic->id; ?>" />
                     <div class="form-group">
-                        <label for="title">Título:</label>
-                        <input name="title" class="form-control" type="text" id="title" placeholder="Digite um título para o seu filme" value="<?= $clinic->name; ?>" />
+                        <label for="name">Título:</label>
+                        <input name="name" class="form-control" type="text" id="name" placeholder="Digite o nome da clínica" value="<?= $clinic->name; ?>" />
                     </div>
                     <div class="form-group">
                         <label for="image">Imagem:</label><br>
@@ -53,24 +53,36 @@ if ($clinic->image == "" || $clinic->image == null) {
                         <label for="category">Categoria:</label>
                         <select name="category" id="category" class="form-control">
                             <option value="">Selecione a categoria da clínica</option>
-                            <option value="Gerais <?= $clinic->category === "Gerais" ? "selected" : "" ?>">Ação</option>
-                            <option value="Diagnóstico e Imagem <?= $clinic->category === "Diagnóstico e Imagem" ? "selected" : "" ?>">Drama</option>
-                            <option value="Reabilitação e Fisioterapia <?= $clinic->category === "Reabilitação e Fisioterapia" ? "selected" : "" ?>">Comédia</option>
-                            <option value="Medicina do Trabalho <?= $clinic->category === "Medicina do Trabalho" ? "selected" : "" ?>">Fantasia / Ficção</option>
-                            <option value="Estética e Dermatologia <?= $clinic->category === "Estética e Dermatologia" ? "selected" : "" ?>">Romance</option>
-                            <option value="Medicina Preventiva <?= $clinic->category === "Medicina Preventiva" ? "selected" : "" ?>">Romance</option>
-                            <option value="Saúde Mental e Psicologia <?= $clinic->category === "Saúde Mental e Psicologia" ? "selected" : "" ?>">Romance</option>
+                            <option value="Gerais <?= $clinic->category === "Gerais" ? "selected" : "" ?>">Gerais</option>
+                            <option value="Diagnóstico e Imagem <?= $clinic->category === "Diagnóstico e Imagem" ? "selected" : "" ?>">Diagnóstico e Imagem</option>
+                            <option value="Reabilitação e Fisioterapia <?= $clinic->category === "Reabilitação e Fisioterapia" ? "selected" : "" ?>">Reabilitação e Fisioterapia</option>
+                            <option value="Medicina do Trabalho <?= $clinic->category === "Medicina do Trabalho" ? "selected" : "" ?>">Medicina do Trabalho</option>
+                            <option value="Estética e Dermatologia <?= $clinic->category === "Estética e Dermatologia" ? "selected" : "" ?>">Estética e Dermatologia</option>
+                            <option value="Medicina Preventiva <?= $clinic->category === "Medicina Preventiva" ? "selected" : "" ?>">Medicina Preventiva</option>
+                            <option value="Saúde Mental e Psicologia <?= $clinic->category === "Saúde Mental e Psicologia" ? "selected" : "" ?>">Saúde Mental e Psicologia</option>
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="state">Estado:</label>
+                        <input type="text" class="form-control" name="state" id="state" placeholder="Insira o nome completo do Estado da clínica. Ex: (Minas Gerais)" value="<?= $clinic->state; ?>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Cidade:</label>
+                        <input type="text" class="form-control" name="city" id="city" placeholder="Insira a cidade da clínica. Ex: (Belo Horizonte)" value="<?= $clinic->city; ?>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="neighborhood">Bairro:</label>
+                        <input type="text" class="form-control" name="neighborhood" id="neighborhood" placeholder="Insira o bairro da clínica" value="<?= $clinic->neighborhood; ?>" />
+                    </div>
+                    <div class="form-group">
                         <label for="location">Localização:</label>
-                        <input type="url" class="form-control" name="location" id="location" placeholder="Insira o link do local da clinica do Google Maps" value="<?= $clinic->location; ?>" />
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Insira o link de incorporação de mapa da clínica" value='<iframe src="<?= $clinic->location ?>" width="560" height="315" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' />
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição:</label>
                         <textarea name="description" id="description" rows="5" class="form-control" placeholder="Descreva detalhes sobre a clínica e o que ela oferece..."><?= $clinic->description; ?></textarea>
                     </div>
-                    <input type="submit" class="btn form card-btn" value="Editar filme">
+                    <input type="submit" class="btn form card-btn" value="Salvar alterações">
                 </form>
             </div>
             <div class="col-md-3">

@@ -29,6 +29,7 @@ class ReviewDao implements ReviewDAOInterface
         $reviewObject->cost_benefit = $data["cost_benefit"];
         $reviewObject->review = $data["review"];
         $reviewObject->users_id = $data["users_id"];
+        $reviewObject->is_anonymous = $data["is_anonymous"];
         $reviewObject->clinics_id = $data["clinics_id"];
 
         return $reviewObject;
@@ -37,9 +38,9 @@ class ReviewDao implements ReviewDAOInterface
     public function create(Review $review)
     {
         $stmt = $this->conn->prepare("INSERT INTO reviews (
-            customer_services, quality_services, facilities_equipment, waiting_time, cost_benefit, review, clinics_id, users_id
+            customer_services, quality_services, facilities_equipment, waiting_time, cost_benefit, review, clinics_id, is_anonymous, users_id
         ) VALUES (
-            :customer_services, :quality_services, :facilities_equipment, :waiting_time, :cost_benefit, :review, :clinics_id, :users_id
+            :customer_services, :quality_services, :facilities_equipment, :waiting_time, :cost_benefit, :review, :clinics_id, :is_anonymous, :users_id
         )");
 
         $stmt->bindParam(":customer_services", $review->customer_services);
@@ -49,6 +50,7 @@ class ReviewDao implements ReviewDAOInterface
         $stmt->bindParam(":cost_benefit", $review->cost_benefit);
         $stmt->bindParam(":review", $review->review);
         $stmt->bindParam(":clinics_id", $review->clinics_id);
+        $stmt->bindParam(":is_anonymous", $review->is_anonymous);
         $stmt->bindParam(":users_id", $review->users_id);
 
         $stmt->execute();

@@ -23,11 +23,10 @@ function getLocationSrcMap($iframe, $message)
 
     // Usa uma expressão regular para encontrar o link src
     preg_match('/src="(https:\/\/[^\"]+)"/', $html, $matches);
-
     if (isset($matches[1])) {
         return $matches[1];
     } else {
-        $message->setMessage("Não foi possível encontrar o link src da localização.", "error", "back");
+        $message->setMessage("Não foi possível encontrar o link src da localização. Adicione um link de incorporação!", "error", "back");
     }
 }
 
@@ -112,26 +111,26 @@ if ($type === "create") {
     $city = filter_input(INPUT_POST, "city");
     $neighborhood = filter_input(INPUT_POST, "neighborhood");
 
-    if (isset($location)) {
-        $clinic->location = getLocationSrcMap($location, $message);
-    }
-
     $clinicData = $clinicDao->findById($id);
 
     //verifica se encontrou filme
     if ($clinicData) {
         // verificar se o filme é do usuário
         if ($clinicData->users_id === $userData->id) {
-            if (!empty($title) && !empty($description) && !empty($category)) {
+            if (!empty($name) && !empty($description) && !empty($category)) {
                 // edição do filme
                 $clinicData->name = $name;
                 $clinicData->description = $description;
                 $clinicData->location = $location;
                 $clinicData->category = $category;
-                $clinicData->$length = $length;
-                $clinic->city = $city;
-                $clinic->state = $state;
-                $clinic->neighborhood = $neighborhood;
+                $clinicData->city = $city;
+                $clinicData->state = $state;
+                $clinicData->neighborhood = $neighborhood;
+                $clinicData->id = $id;
+
+                if (isset($location)) {
+                    $clinicData->location = getLocationSrcMap($location, $message);
+                }
 
                 //upload de imagem do filme
                 if (isset($_FILES["image"]) && !empty($_FILES["image"]["tmp_name"])) {
@@ -160,7 +159,7 @@ if ($type === "create") {
 
                 $clinicDao->update($clinicData);
             } else {
-                $message->setMessage("Você precisa adicionar: título, descrição e categoria", "error", "back");
+                $message->setMessage("Você precisa adicionar: nome, descrição e categoria", "error", "back");
             }
         } else {
             $message->setMessage("Informações inválidas!", "error", "/index.php");

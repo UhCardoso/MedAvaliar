@@ -16,17 +16,17 @@ $userclinics = $clinicDao->getClinicsByUserId($userData->id);
 ?>
 <div id="main-container" class="container-fluid">
     <h2 class="section-title">Dashboard</h2>
-    <p class="section-description">Adicione ou atualize as informações dos filmes que você enviou</p>
+    <p class="section-description">Adicione ou atualize as informações das clínicas que você adicionou</p>
     <div class="col-md-12" id="add-clinic-container">
         <a href="<?= $BASE_URL ?>/newclinic.php" class="btn card-btn">
-            <i class="fas fa-plus"></i> Adicionar filme
+            <i class="fas fa-plus"></i> Adicionar clínica
         </a>
     </div>
     <div class="col-md-12" id="clinics-dashboard">
         <table class="table">
             <thead>
                 <th scope="#">#</th>
-                <th scope="#">Titulo</th>
+                <th scope="#">Nome</th>
                 <th scope="#">Nota</th>
                 <th scope="#" class="actions-column">Ações</th>
             </thead>

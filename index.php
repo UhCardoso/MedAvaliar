@@ -36,7 +36,7 @@ $actionclinics = $clinicDao->getClinicsByCategory("Ação");
             <?php require("templates/clinic_card.php"); ?>
         <?php endforeach; ?>
         <?php if (count($geralClinics) === 0) : ?>
-            <p class="empty-list">ainda não há clínicas de atendimento Geral</p>
+            <p class="empty-list">ainda não há clínicas de Atendimento Geral</p>
         <?php endif; ?>
     </div>
     <h2 class="section-title">Diagnóstico e Imagem</h2>

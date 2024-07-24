@@ -52,13 +52,13 @@ $userclinics = $clinicDao->getClinicsByUserId($id);
                 <?php endif; ?>
             </div>
             <div class="col-md-12 added-clinics-container">
-                <h3>Filmes que enviou:</h3>
+                <h3>Clínicas que adicionou:</h3>
                 <div class="clinics-container">
                     <?php foreach ($userclinics as $clinic) : ?>
                         <?php require("templates/clinic_card.php"); ?>
                     <?php endforeach; ?>
                     <?php if (count($userclinics) === 0) : ?>
-                        <p class="empty-list">O usuário ainda não enviou nenhum filme.</p>
+                        <p class="empty-list">O usuário ainda não enviou nenhuma clínica.</p>
                     <?php endif; ?>
                 </div>
             </div>
